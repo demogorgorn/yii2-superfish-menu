@@ -25,7 +25,7 @@ use demogorgorn\superfish\SuperfishAssets;
  *       ['label' => 'First level menu item', 'url' => ['/site/publikacii']],
  *       [
  *           'label' => 'First level menu item', 
- *           'url' => ['/site/kontakty'],
+ *           'url' => ['/site/kontakt'],
  *           'items' => [
  *               [
  *                   'label' => 'Second level menu item', 
