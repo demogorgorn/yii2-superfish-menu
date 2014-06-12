@@ -13,7 +13,7 @@ use demogorgorn\superfish\SuperfishAssets;
  *
  * Multi level menu example example:
  * ```php
- * echo \demogorgorn\uikit\superfish\Superfish::widget([
+ * echo \demogorgorn\superfish\Superfish::widget([
  *   'options' => [
  *       'class' => 'uk-float-right',
  *   ],
