@@ -25,7 +25,7 @@ use demogorgorn\superfish\SuperfishAssets;
  *       ['label' => 'First level menu item', 'url' => ['/site/publikacii']],
  *       [
  *           'label' => 'First level menu item', 
- *           'url' => ['/site/kontakt'],
+ *           'url' => ['/site/kontakty'],
  *           'items' => [
  *               [
  *                   'label' => 'Second level menu item', 
@@ -75,7 +75,11 @@ class Superfish extends \yii\base\Widget {
      */
     public $items = [];
 
-    public $configs = array();
+    /**
+     * @var array of the slider options
+     * @see homepage of superfish menu
+     */
+    public $configuration = [];
 
     /**
      * @var array the HTML attributes for the widget container tag.
@@ -128,13 +132,7 @@ class Superfish extends \yii\base\Widget {
               
         // render js
         $this->getView()->registerJs("
-            (function($){
-                $(document).ready(function(){
-                    var fish = $('#".$this->options['id']."').superfish({
-                        //add options here if required
-                    });
-                });
-            })(jQuery);
+            $('#".$this->options['id']."').superfish(" . $this->getConfiguration() . ");
 		");
     }
 
@@ -146,8 +144,8 @@ class Superfish extends \yii\base\Widget {
         echo $this->createMenu($this->items, $this->options);
     }
 
-    public function getConfigs() {
-        return $configs = json_encode($this->configs);
+    public function getConfiguration() {
+        return $configs = \yii\helpers\Json::encode($this->configuration);
     }
 
     public function createMenu($items, $options = []) {
