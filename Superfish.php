@@ -182,6 +182,7 @@ class Superfish extends \yii\base\Widget {
 
         $link = Html::a($label, $url, $linkOptions);
 
+        $items = "";
         if (isset($item['items']) and !empty($item['items']))
             $items = $this->createMenu($item['items']);
 
