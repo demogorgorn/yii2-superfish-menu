@@ -107,6 +107,8 @@ class Superfish extends \yii\base\Widget {
      */
     public $encodeLabels = false;
 
+    public $subMenuClass = 'sub-menu';
+
     /**
      * Initializes the widget.
      */
@@ -148,7 +150,11 @@ class Superfish extends \yii\base\Widget {
         return $configs = \yii\helpers\Json::encode($this->configuration);
     }
 
-    public function createMenu($items, $options = []) {
+    public function createMenu($items, $options = [], $isSubMenu = false) {
+
+        if ($isSubMenu)
+            Html::addCssClass($options, $this->subMenuClass);
+
         $htmlTree = Html::beginTag('ul', $options);
 
         foreach ($items as $item) {
@@ -184,7 +190,7 @@ class Superfish extends \yii\base\Widget {
 
         $items = "";
         if (isset($item['items']) and !empty($item['items']))
-            $items = $this->createMenu($item['items']);
+            $items = $this->createMenu($item['items'], [], true);
 
         return Html::tag('li', $link . $items, $options);
     }
