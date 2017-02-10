@@ -109,6 +109,8 @@ class Superfish extends \yii\base\Widget {
 
     public $subMenuClass = 'sub-menu';
 
+    public $dropdownMenuItemClass = 'deeper dropdown parent';
+
     /**
      * Initializes the widget.
      */
@@ -189,8 +191,10 @@ class Superfish extends \yii\base\Widget {
         $link = Html::a($label, $url, $linkOptions);
 
         $items = "";
-        if (isset($item['items']) and !empty($item['items']))
+        if (isset($item['items']) and !empty($item['items'])) {
+            Html::addCssClass($options, $this->dropdownMenuItemClass);
             $items = $this->createMenu($item['items'], [], true);
+        }
 
         return Html::tag('li', $link . $items, $options);
     }
