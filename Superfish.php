@@ -135,8 +135,9 @@ class Superfish extends \yii\base\Widget {
         Html::addCssClass($this->options, 'sf-menu');
               
         // render js
-        $this->getView()->registerJs("
+        $this->getView()->registerJs("jQuery(function($){
             $('#".$this->options['id']."').superfish(" . $this->getConfiguration() . ");
+        })
 		");
     }
 
