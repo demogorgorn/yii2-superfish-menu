@@ -11,21 +11,18 @@ use Yii;
 
 class SuperfishAssets extends AssetBundle
 {
-	public $sourcePath = '@sf/superfish';
-	public $basePath = '@webroot/assets';
+	public $sourcePath = '@bower/superfish/dist/';
 	public $css = [
-         'css/superfish.css'
+		'css/superfish.css',
+        'css/superfish-navbar.css',
+        'css/superfish-vertical.css',
 	 ];
 	public $js = [
 		'js/hoverIntent.js',
-		'js/superfish.js',
+		'js/superfish.min.js',
+		'js/supersubs.js',
 	];
 	public $depends = [
 		'yii\web\JqueryAsset',
 	];
-
-	public function init() {
-		Yii::setAlias('@sf', __DIR__);
-		return parent::init();
-	}
 }
