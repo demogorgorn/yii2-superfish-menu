@@ -177,7 +177,7 @@ class Superfish extends \yii\base\Widget {
         }
 
         if ($active) {
-            Html::addCssClass($options, 'current-menu-item');
+            Html::addCssClass($options, 'current-menu-item current active');
         }
 
         $link = Html::a($label, $url, $linkOptions);
